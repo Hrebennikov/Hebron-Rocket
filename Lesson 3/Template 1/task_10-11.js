@@ -58,9 +58,6 @@ let users = [{
     address: { city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45 }
   }];
 
-// let names = ["Maks", "Denis", "Ihor", "Nick"];
-
-
 
 for (const user of users) {
     // console.log(user.name);
