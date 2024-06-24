@@ -85,3 +85,31 @@ const name1 = users3.sort((a, b) => {
 
 const nameSort1 = name1;
 console.log(nameSort1);
+
+// Task 16
+const users4 = [
+    {name: 'vasya', age: 31, isMarried: false},
+    {name: 'petya', age: 30, isMarried: true},
+    {name: 'kolya', age: 29, isMarried: true},
+    {name: 'olya', age: 28, isMarried: false},
+    {name: 'max', age: 30, isMarried: true},
+    {name: 'anya', age: 31, isMarried: false},
+    {name: 'oleg', age: 28, isMarried: false},
+    {name: 'andrey', age: 29, isMarried: true},
+    {name: 'masha', age: 30, isMarried: true},
+    {name: 'olya', age: 31, isMarried: false},
+    {name: 'max', age: 31, isMarried: true}
+];
+
+const forEach = users4.map((index) => {
+    const rrr = {
+        id: index 
+    }
+
+    // index.push(rrr);
+
+    return rrr 
+}, []);
+
+console.log(forEach);
+
