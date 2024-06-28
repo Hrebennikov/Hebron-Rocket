@@ -43,6 +43,37 @@ function goToWork(time) {
     });
 }
 
+// Action #5
+function lunch(toHaveLunch) {
+    return new Promise ((resolve, reject) => {
+        setTimeout( () => {
+        if (toHaveLunch === true) {
+            resolve("After lunch you can continue working")
+        } else {
+            reject("A lot of work, no time for lunch")
+        }
+      }, 400)
+    });
+}
+
+// Action #6 
+function comeBackHome() {
+    return new Promise (resolve => {
+        setTimeout( () => {
+            resolve("Come back home at 6:00 p. m.")
+        }, 3000)
+    });
+}
+
+// Action #7
+function dinner() {
+    return new Promise (resolve => {
+        setTimeout( () => {
+            resolve("After dinner, you can go about your business")
+        })
+    })
+}
+
 
 // Output
 gotUp(8)
@@ -60,6 +91,21 @@ gotUp(8)
     console.log(value);
 
     return goToWork("9:30")
+})
+.then(value => {
+    console.log(value);
+
+    return lunch(true)
+})
+.then(value => {
+    console.log(value);
+
+    return comeBackHome()
+})
+.then(value => {
+    console.log(value);
+
+    return dinner()
 })
 .then(value => {
     console.log(value);
@@ -82,9 +128,12 @@ async function routine() {
 
     const cameOut = await goToWork("9:30")
     console.log(cameOut);
+
+    const haveLunch = await lunch(true)
+    console.log(haveLunch);
     } catch (error) {
         console.log(error);
     }
 }
 
-routine()
+// routine()
