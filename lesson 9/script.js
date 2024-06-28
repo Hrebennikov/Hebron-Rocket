@@ -70,8 +70,43 @@ function dinner() {
     return new Promise (resolve => {
         setTimeout( () => {
             resolve("After dinner, you can go about your business")
-        })
-    })
+        }, 1500)
+    });
+}
+
+// Action #8
+function toRead(pages) {
+    return new Promise ((resolve, reject) => {
+        setTimeout( () => {
+            if (pages >= 10) {
+                resolve("I read the norm, Today")
+            } else {
+                reject("I didn't read the norm, Today")
+            }
+        }, 4000)
+    });
+}
+
+// Action #9
+function watchTV() {
+    return new Promise (resolve => {
+        setTimeout( () => {
+            resolve("After watching TV, I can go to bed")
+        }, 1800)
+    });
+}
+
+// Action #10
+function goToSleep(time) {
+    return new Promise ((resolve, reject) => {
+        setTimeout( () => {
+            if (time == 11) {
+                resolve("After a busy day, I went to bed on time")
+            } else {
+                reject("I went to bed late, I won't get up on time again tomorrow")
+            }
+        }, 2500)
+    });
 }
 
 
@@ -109,9 +144,27 @@ gotUp(8)
 })
 .then(value => {
     console.log(value);
+
+    return toRead(10)
+})
+.then(value => {
+    console.log(value);
+
+    return watchTV()
+})
+.then(value => {
+    console.log(value);
+
+    return goToSleep(11)
+})
+.then(value => {
+    console.log(value);
 })
 .catch(reason => {
     console.error(reason);
+})
+.finally( () => {
+    console.log("Finaly");
 })
 
 // Or
@@ -131,9 +184,24 @@ async function routine() {
 
     const haveLunch = await lunch(true)
     console.log(haveLunch);
+
+    const backHome = await comeBackHome()
+    console.log(backHome);
+
+    const haveDinner = await dinner()
+    console.log(haveDinner);
+
+    const read = await toRead(10)
+    console.log(read);
+
+    const watch = await watchTV()
+    console.log(watch);
+
+    const sleep = await goToSleep(11)
+    console.log(sleep);
     } catch (error) {
         console.log(error);
     }
 }
 
-// routine()
+routine()
